@@ -53,17 +53,19 @@ const App = () => {
       <div className={css.ContactsBox}>
         <h2>Contacts</h2>
 
-        <Filter value={filter} handleChange={handleFilter} />
+        {allContacts.length > 0 && (
+          <Filter value={filter} handleChange={handleFilter} />
+        )}
 
         <ContactList
           removeContact={handleDeleteContact}
           contacts={filteredContacts}
         />
-        {/* {contacts.length === 0 && (
+        {allContacts.length === 0 && (
           <p className={css.notificationMessage}>
             There are no contacts in your phonebook
           </p>
-        )} */}
+        )}
       </div>
     </div>
   );
